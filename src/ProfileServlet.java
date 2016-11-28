@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class ProfileServlet
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/ProfileServlet")
+public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public ProfileServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,22 +27,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		//System.out.println("");
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		String message = "Hello You entered " + email + " " + password;
-			
-			
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		
-		
-		request.setAttribute("message", message);
-		
-		String nextURL = "/output.jsp";
-		getServletContext().getRequestDispatcher(nextURL).forward(request,response);
-	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

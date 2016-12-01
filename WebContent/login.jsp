@@ -8,9 +8,10 @@
 </head>
 <body>
 
-<form action="Login" method="get" >
-<p>Enter your Email: </p> <input type="text" name="email" id="eamil" > </input><br/>
+<form action="Login" method="post" >
+<p>Enter your Email: </p> <input type="text" name="email" id="email" > </input><br/>
 <p>Enter your password: </p> <input type="text" name="password" id="password" > </input><br/>
+<input type="hidden" name = "action" id="action" value = "login" > </input><br/>
 <input type="submit" value="submit"> </input>
 </form>
 

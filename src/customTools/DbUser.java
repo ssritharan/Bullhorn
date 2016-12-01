@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Date;
 
-
 import util.MD5Util;
 import model.Bhuser;
 
@@ -40,10 +39,6 @@ public class DbUser {
 				//user.setJoindate(java.util.Date(rs.getString(5)));
 				user.setMotto(rs.getString(6));
 			}
-
-
-
-
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
@@ -106,11 +101,15 @@ public class DbUser {
 	 * @param size - indicates pixel height of the image to be returned. Height and Width are same.
 	 * @return - the gravatar URL. You can test it in a browser.
 	 */
+	
+	
 	public static String getGravatarURL(String email, Integer size){
 		String url = "http://www.gravatar.com/avatar/" +
 				MD5Util.md5Hex(email) + "?s=" + size.toString();
 		return url;
 	}
+	
+	
 	/**
 	 * Updates the data in a Bhuser
 	 * Pass the method a Bhuser with all the values set to your liking and 
@@ -242,6 +241,9 @@ public class DbUser {
 			rs = pstmt.executeQuery();
 			if (rs.next()){
 				recordsAffected = rs.getInt(1);
+				System.out.println("the records affected is  " + recordsAffected );
+				System.out.println("the sql is  " + sql );
+				
 
 			}
 
@@ -270,4 +272,5 @@ public class DbUser {
 		return isValid;
 			
 	}
+}
 	

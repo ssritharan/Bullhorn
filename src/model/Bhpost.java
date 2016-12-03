@@ -43,5 +43,9 @@ public class Bhpost implements Serializable {
 	public void setBhuserid(long bhuserid) {
 		this.bhuserid = bhuserid;
 	}
+	
+	public Bhuser getBhuser(){
+		return customTools.DbUser.getUser(this.bhuserid);
+	}
 
 }

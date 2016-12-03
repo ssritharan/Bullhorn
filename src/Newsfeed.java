@@ -12,11 +12,11 @@ import javax.servlet.http.HttpSession;
 import model.Bhpost;
 import customTools.DbBullhorn;
 
-@WebServlet("/Newsfeed")
-public class NewsfeedServlet extends HttpServlet {
+@WebServlet("/Newsfeed_old")
+public class Newsfeed extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public NewsfeedServlet() {
+    public Newsfeed() {
         super();
     }
 

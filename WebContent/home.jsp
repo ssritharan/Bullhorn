@@ -7,13 +7,16 @@
 <title>Bullhorn</title>
 
  
- <!--  
+   
 <jsp:include page="bootstrap.jsp"></jsp:include>
--->
+
 </head>
 <h1>This is the home page</h1>
 
 <body>
+
+<jsp:include page="navbar.jsp"></jsp:include>  
+<br>
 
 <form role="form" action="HomeServlet" method="post" onsubmit="return validate(this);">
                 <div class="form-group">  
@@ -29,7 +32,7 @@
             
             
  
-   <jsp:include page="navbar.jsp"></jsp:include>  
+   
  
  </body>           
             

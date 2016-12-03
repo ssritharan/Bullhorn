@@ -17,10 +17,10 @@ import customTools.DbBullhorn;
 
 
 @WebServlet("/PostServ")
-public class PostServServlet extends HttpServlet {
+public class PostServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public PostServServlet() {
+    public PostServ() {
         super();
     }
 

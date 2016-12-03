@@ -26,7 +26,9 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, 
     							HttpServletResponse response) 
     									throws ServletException, IOException {
-		Date postdate = new Date();
+		//Date postdate = new Date();
+		java.util.Date d = new java.util.Date();
+		java.sql.Date postdate = new java.sql.Date(d.getTime());//returns current date
 		String posttext = request.getParameter("posttext");
 		String nextURL = "/error.jsp";
 		//need a reference to the session
@@ -43,37 +45,17 @@ public class HomeServlet extends HttpServlet {
 		
 		//get user information from session so we can connect to the db
 		Bhuser user = (Bhuser)session.getAttribute("user");
+		int userid = (int)user.getBhuserid();
+		 DbBullhorn.insert(postdate, posttext, userid);
 		
-/*****************************************
-		//get  a populated bhuser object since we'll add that to the post
-		EntityManager em = DbUtil.getEmFactory().createEntityManager();
-		String query = "select u from Bhuser u where u.useremail=:email";
-		TypedQuery<Bhuser> q = em.createQuery(query,Bhuser.class);
-		q.setParameter("email",user.getUseremail());
-		
-		Bhuser bhUser = null;
-		try {
-			bhUser = q.getSingleResult();
-			System.out.println("The user id is: " + bhUser.getBhuserid());
-			nextURL = "/Newsfeed";
-		} catch (NoResultException e){
-			System.out.println(e);
-		} catch (NonUniqueResultException e){
-			System.out.println(e);
-		} finally {
-			em.close();
-		}
-		
-		//insert the post
-		Bhpost bhPost = new Bhpost();
-		bhPost.setBhuser(bhUser);
-		bhPost.setPostdate(postdate);
-		bhPost.setPosttext(posttext);
-		
-		DbBullhorn.insert(bhPost);
-**********************************************/		
+
 		//go to the newsfeed or error
+		 
+		 nextURL = "/newsfeed.jsp";
 		getServletContext().getRequestDispatcher(nextURL).forward(request, response);
+		//nextURL = "/newsfeed.jsp";
+		
+		
 		
 	}
 

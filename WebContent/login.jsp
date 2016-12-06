@@ -6,6 +6,17 @@
 <title>Bullhorn</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <jsp:include page="bootstrap.jsp"></jsp:include>
+ <script type="text/javascript">
+ function verifyPassword() {
+	   var password = $('#password').val();
+	     if (password.length > 2)
+	       {
+	           alert('That password is too long.');
+	        }
+	 }
+</script>
+
+
  </head>
  <body>
  <h1>Login</h1>
@@ -18,11 +29,12 @@
  <input type="hidden" name="action" id="action" value="login"/>
  <label for="inputPassword" class="sr-only">Password</label>
  <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+ <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return verifyPassword();">Sign in</button>
  </form>
  <!--  <a href="adduser.jsp">Join</a> -->
  </div> <!-- /container -->
 
  <jsp:include page="footer.jsp"></jsp:include> 
+
 </body>
 </html>

@@ -13,5 +13,12 @@ public class BhUserTest {
 		assertTrue(user.getBhuserid()==3);
 			
 	}
+	
+	@Test
+	public void getUserTest2() {
+		
+		assertTrue(3==2);
+			
+	}
 
 }
